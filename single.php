@@ -16,13 +16,15 @@ if( have_posts() ) {
 ?>
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-      <a href="<?php the_permalink() ?>">
-
-        <?php the_post_thumbnail( get_random_image_size()); ?>
-
-        <?php the_title(); ?>
-
-      </a>
+      <div class="single-text">
+        <a href="<?php the_permalink() ?>">
+          <h2><?php the_title(); ?></h2>
+        </a>
+        <?php the_content(); ?>
+      </div>
+      <div class="single-images">
+        
+      </div>
     </article>
 
 <?php

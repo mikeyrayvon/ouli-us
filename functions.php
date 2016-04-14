@@ -35,12 +35,14 @@ if( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
 }
 
+/*
 if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
   add_image_size( 'name', 199, 299, true );
 }
+*/
 
 // Register Nav Menus
 /*
@@ -173,5 +175,10 @@ function debug_page_request() {
   echo '<!-- Loaded Template: ';
   echo basename($template);
   echo ' -->'.D4P_EOL;
+}
+
+function get_random_image_size() {
+  $sizes = (array) get_intermediate_image_sizes();
+  return $sizes[array_rand( $sizes )];
 }
 ?>
