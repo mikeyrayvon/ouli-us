@@ -1,0 +1,157 @@
+@import "kouto-swiss"
+
+@import "helpers"
+@import "genericons"
+
+meyer-reset()
+box-sizing-reset()
+normalize()
+
+// GRID
+
+$cols = 12
+$col = 90px
+$gutter = 16px
+
+.container
+  margin: 0 auto
+  width: ($col * $cols)+($gutter * $cols)
+
+.row
+  clearfix()
+
+.col
+  float: left
+  margin-left: ($gutter/2)
+  margin-right: ($gutter/2)
+  min-height: 1px
+
+for col in 1..$cols
+  .col-{col}
+    width: ( col * $col ) + ( ( col - 1 ) * $gutter )
+
+    // FLUID COLS
+
+.percent-col
+  float: left
+  box-sizing: border-box
+
+$pcols = 10
+
+for pcol in 1..$pcols
+  .s-into-{pcol}
+    width: ( 100% / pcol )
+
+@media screen and (min-width: 601px)
+
+  for pcol in 1..$pcols
+    .m-into-{pcol}
+      width: ( 100% / pcol )
+
+@media screen and (min-width: 993px)
+
+  for pcol in 1..$pcols
+    .l-into-{pcol}
+      width: ( 100% / pcol )
+
+// VARIABLES
+
+$golden-ratio = 1.61803398875
+
+$margin-small = ($gutter)
+$margin-tiny = ($gutter / 2)
+$margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
+$margin-large = ($gutter * 5)
+
+$font-size-basic = 15px
+$font-leading-basic = 1.35em
+$font-tracking-basic = 0.001em
+
+$color-black-soft = rgb(14, 14, 14)
+$color-white-soft = rgb(253, 253, 253)
+
+// TYPOGRAPHY
+
+body
+  font-family: font-stack('Helvetica')
+  font-size: $font-size-basic
+  line-height: $font-leading-basic
+  letter-spacing: $font-tracking-basic
+
+  // HTML ELEMENT STYLING
+
+h1
+  font-size: 3rem
+
+h2
+  font-size: 2rem
+
+h3
+  font-size: 1.5rem
+
+p
+  margin-bottom: 1rem
+
+  // FONT RULES
+
+.font-italic
+  font-style: italic
+
+.font-bold
+  font-weight: bold
+
+.font-small-caps
+  font-size: 0.85em
+  text-transform: uppercase
+
+  // TEXT RULES
+
+.text-overflow-ellipsis
+  overflow: ellipsis
+
+.text-align-left
+  text-align: left
+
+.text-align-right
+  text-align: right
+
+.text-align-center
+  text-align: center
+
+
+// LINKS
+
+a,
+a:active,
+a:visited
+  color: inherit
+  text-decoration: none
+
+
+// BASIC
+
+html
+  background-color: $color-white-soft
+  color: $color-black-soft
+
+img
+  max-width: 100%
+  height: auto
+
+
+// MEDIA QUERIES
+
+@media screen and (max-width: ($col * $cols)+($gutter * $cols))
+
+  html
+    width: 100%
+
+@media screen and (max-width: 601px)
+
+   .container
+    width: 96%
+  .col
+    width: 100%
+    float: none
+    margin-left: ($gutter/2)
