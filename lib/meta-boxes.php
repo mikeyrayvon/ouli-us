@@ -41,7 +41,7 @@ function igv_cmb_metaboxes() {
   $images_group = new_cmb2_box( array(
     'id'           => $prefix . 'images',
     'title'        => __( 'Images', 'cmb2' ),
-    'object_types' => array( 'page', ),
+    'object_types' => array( 'post', ),
   ) );
 
   $group_images_id = $images_group->add_field( array(
