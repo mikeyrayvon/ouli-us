@@ -51,6 +51,38 @@ register_nav_menus( array(
 ) );
 */
 
+/*
+// update_option image sizes
+add_filter( 'pre_update_option_thumbnail_size_w', 'themename_filter_thumbnail_size_w' );
+function themename_filter_thumbnail_size_w( $newvalue ) {
+  return 180;
+}
+add_filter( 'pre_update_option_thumbnail_size_h', 'themename_filter_thumbnail_size_h' );
+function themename_filter_thumbnail_size_h( $newvalue ) {
+  return 180;
+}
+add_filter( 'pre_update_option_thumbnail_crop', 'themename_filter_thumbnail_crop' );
+function themename_filter_thumbnail_crop( $newvalue ) {
+  return 1;
+}
+add_filter( 'pre_update_option_medium_size_w', 'themename_filter_medium_size_w' );
+function themename_filter_medium_size_w( $newvalue ) {
+  return 390;
+}
+add_filter( 'pre_update_option_medium_size_h', 'themename_filter_medium_size_h' );
+function themename_filter_medium_size_h( $newvalue ) {
+  return 390;
+}
+add_filter( 'pre_update_option_large_size_w', 'themename_filter_large_size_w' );
+function themename_filter_large_size_w( $newvalue ) {
+  return 660;
+}
+add_filter( 'pre_update_option_large_size_h', 'themename_filter_large_size_h' );
+function themename_filter_large_size_h( $newvalue ) {
+  return 660;
+}
+*/
+
 get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
