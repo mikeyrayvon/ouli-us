@@ -23,7 +23,16 @@ if( have_posts() ) {
         <?php the_content(); ?>
       </div>
       <div class="single-images">
-        
+        <?php 
+          echo get_random_image_size();
+          $images = get_post_meta('_igv_images', false);
+
+          if ($images) {
+            foreach($images as $image) {
+              var_dump($image);
+            }
+          }
+        ?>
       </div>
     </article>
 
