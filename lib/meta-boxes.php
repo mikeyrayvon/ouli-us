@@ -38,6 +38,36 @@ function igv_cmb_metaboxes() {
 	 * Metaboxes declarations here
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
+  $images_group = new_cmb2_box( array(
+    'id'           => $prefix . 'images',
+    'title'        => __( 'Images', 'cmb2' ),
+    'object_types' => array( 'page', ),
+  ) );
+
+  $group_images_id = $images_group->add_field( array(
+    'id'          => $prefix . 'demo',
+    'type'        => 'group',
+    'description' => __( 'Post Images', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => __( 'Image {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => __( 'Add Another Image', 'cmb2' ),
+      'remove_button' => __( 'Remove Image', 'cmb2' ),
+      'sortable'      => true, // beta
+      // 'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $images_group->add_group_field( $group_images_id, array(
+    'name' => __( 'Image File', 'cmb2' ),
+    'id'   => 'image',
+    'type' => 'file',
+  ) );
+
+  $images_group->add_group_field( $group_images_id, array(
+    'name' => __( 'Image Caption', 'cmb2' ),
+    'id'   => 'image_caption',
+    'type' => 'text',
+  ) );
 
 }
 ?>
