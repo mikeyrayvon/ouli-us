@@ -18,21 +18,37 @@ if( have_posts() ) {
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
       <div class="single-text">
         <a href="<?php the_permalink() ?>">
-          <h2><?php the_title(); ?></h2>
+          <h1><?php the_title(); ?></h1>
         </a>
         <?php the_content(); ?>
       </div>
-      <div class="single-images">
-        <?php 
-          echo get_random_image_size();
-          $images = get_post_meta('_igv_images', false);
+      <div class="images-container">
+<?php 
+  $images_data = get_post_meta($post->ID, '_igv_images');
+  $images = $images_data[0];
 
-          if ($images) {
-            foreach($images as $image) {
-              var_dump($image);
-            }
-          }
-        ?>
+  if ($images) {
+    foreach($images as $image) {
+
+      $image_id = $image['image_id'];
+      $image_size = get_random_image_size();
+      $image_width = get_option( "{$image_size}_size_w" );
+      $image_src = wp_get_attachment_image_src( $image_id, $image_size )[0];
+
+      ?>
+
+        <div class="single-image" style="max-width:<?php echo $image_width; ?>px;">
+          <img src="<?php echo $image_src; ?>" />
+        <?php if ( array_key_exists('image_caption', $image) ) { ?>
+          <div class="caption"><?php echo $image['image_caption']; ?></div>
+        <?php } ?>
+        </div>
+
+      <?php
+
+    } // end foreach
+  } // end if
+?>
       </div>
     </article>
 

@@ -55,6 +55,6 @@
 
   <!-- start content -->
   <header id="header" class="container">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-    <a href="#">email</a>
+    <h1 class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+    <span class="email-link"><a href="#">email</a></span>
   </header>

@@ -35,14 +35,14 @@ if( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
 }
 
-/*
-if( function_exists( 'add_image_size' ) ) {
-  add_image_size( 'admin-thumb', 150, 150, false );
-  add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'name', 199, 299, true );
+if( function_exists( 'add_image_size' ) ) {
+  //add_image_size( 'admin-thumb', 150, 150, false );
+  //add_image_size( 'opengraph', 1200, 630, true );
+
+  add_image_size( 'medium_large', 720, 9999, false );
 }
-*/
+
 
 // Register Nav Menus
 /*
@@ -51,37 +51,43 @@ register_nav_menus( array(
 ) );
 */
 
-/*
 // update_option image sizes
-add_filter( 'pre_update_option_thumbnail_size_w', 'themename_filter_thumbnail_size_w' );
-function themename_filter_thumbnail_size_w( $newvalue ) {
+add_filter( 'pre_update_option_thumbnail_size_w', 'Ouli_theme_filter_thumbnail_size_w' );
+function Ouli_theme_filter_thumbnail_size_w( $newvalue ) {
   return 180;
 }
-add_filter( 'pre_update_option_thumbnail_size_h', 'themename_filter_thumbnail_size_h' );
-function themename_filter_thumbnail_size_h( $newvalue ) {
-  return 180;
+add_filter( 'pre_update_option_thumbnail_size_h', 'Ouli_theme_filter_thumbnail_size_h' );
+function Ouli_theme_filter_thumbnail_size_h( $newvalue ) {
+  return 9999;
 }
-add_filter( 'pre_update_option_thumbnail_crop', 'themename_filter_thumbnail_crop' );
-function themename_filter_thumbnail_crop( $newvalue ) {
-  return 1;
+add_filter( 'pre_update_option_thumbnail_crop', 'Ouli_theme_filter_thumbnail_crop' );
+function Ouli_theme_filter_thumbnail_crop( $newvalue ) {
+  return 0;
 }
-add_filter( 'pre_update_option_medium_size_w', 'themename_filter_medium_size_w' );
-function themename_filter_medium_size_w( $newvalue ) {
-  return 390;
+add_filter( 'pre_update_option_medium_size_w', 'Ouli_theme_filter_medium_size_w' );
+function Ouli_theme_filter_medium_size_w( $newvalue ) {
+  return 300;
 }
-add_filter( 'pre_update_option_medium_size_h', 'themename_filter_medium_size_h' );
-function themename_filter_medium_size_h( $newvalue ) {
-  return 390;
+add_filter( 'pre_update_option_medium_size_h', 'Ouli_theme_filter_medium_size_h' );
+function Ouli_theme_filter_medium_size_h( $newvalue ) {
+  return 9999;
 }
-add_filter( 'pre_update_option_large_size_w', 'themename_filter_large_size_w' );
-function themename_filter_large_size_w( $newvalue ) {
-  return 660;
+add_filter( 'pre_update_option_medium_large_size_w', 'Ouli_theme_filter_medium_large_size_w' );
+function Ouli_theme_filter_medium_large_size_w( $newvalue ) {
+  return 720;
 }
-add_filter( 'pre_update_option_large_size_h', 'themename_filter_large_size_h' );
-function themename_filter_large_size_h( $newvalue ) {
-  return 660;
+add_filter( 'pre_update_option_medium_large_size_h', 'Ouli_theme_filter_medium_large_size_h' );
+function Ouli_theme_filter_medium_large_size_h( $newvalue ) {
+  return 9999;
 }
-*/
+add_filter( 'pre_update_option_large_size_w', 'Ouli_theme_filter_large_size_w' );
+function Ouli_theme_filter_large_size_w( $newvalue ) {
+  return 900;
+}
+add_filter( 'pre_update_option_large_size_h', 'Ouli_theme_filter_large_size_h' );
+function Ouli_theme_filter_large_size_h( $newvalue ) {
+  return 9999;
+}
 
 get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
@@ -117,7 +123,7 @@ function new_display_post_thumbnail_column($col, $id){
   switch($col){
     case 'new_post_thumb':
     if( function_exists('the_post_thumbnail') ) {
-      echo the_post_thumbnail( 'admin-thumb' );
+      echo the_post_thumbnail( 'thumbnail' );
       }
     else
     echo 'Not supported in theme';

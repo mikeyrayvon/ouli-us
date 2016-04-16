@@ -39,13 +39,13 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
   $images_group = new_cmb2_box( array(
-    'id'           => $prefix . 'images',
+    'id'           => $prefix . 'image_group',
     'title'        => __( 'Images', 'cmb2' ),
     'object_types' => array( 'post', ),
   ) );
 
   $group_images_id = $images_group->add_field( array(
-    'id'          => $prefix . 'demo',
+    'id'          => $prefix . 'images',
     'type'        => 'group',
     'description' => __( 'Post Images', 'cmb2' ),
     'options'     => array(
