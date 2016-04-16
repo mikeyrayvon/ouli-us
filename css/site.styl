@@ -1,7 +1,8 @@
 @import "kouto-swiss"
 
 @import "helpers"
-@import "genericons"
+
+@import "fonts"
 
 meyer-reset()
 box-sizing-reset()
@@ -44,6 +45,11 @@ body
  
 h1, h2
   font-size: 1.2rem
+  font-weight: 600
+  
+h2
+  margin: $margin-tiny 0
+
 
 p
   margin-bottom: 1rem
@@ -97,12 +103,14 @@ header#header
 .site-title
   position: fixed
   margin: 0
-  font-size: 1.5rem
+  font-size: 1.8rem
+  font-weight: 400
   
 .email-link
   display: block
   text-align: right 
   font-size: 1.5rem
+  text-decoration: underline
   
 
 // BASIC

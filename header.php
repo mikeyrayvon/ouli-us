@@ -50,11 +50,16 @@
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+<?php
+  $email = IGV_get_option('_igv_email');
+?>
 
   <section id="main-container">
 
   <!-- start content -->
   <header id="header" class="container">
     <h1 class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-    <span class="email-link"><a href="#">email</a></span>
+  <?php if ($email) { ?>
+    <span class="email-link"><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></span>
+  <?php } ?>
   </header>

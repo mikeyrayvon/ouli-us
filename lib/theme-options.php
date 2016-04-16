@@ -104,19 +104,11 @@ class IGV_Admin {
 		// Set our CMB2 fields
 
 		$cmb->add_field( array(
-			'name' => __( 'Test Text', 'IGV' ),
-			'desc' => __( 'field description (optional)', 'IGV' ),
-			'id'   => $this->prefix . 'test_text',
+			'name' => __( 'Email address', 'IGV' ),
+			'desc' => __( 'appears in the header', 'IGV' ),
+			'id'   => $this->prefix . 'email',
 			'type' => 'text',
-			'default' => 'Default Text',
-		) );
-
-		$cmb->add_field( array(
-			'name'    => __( 'Test Color Picker', 'IGV' ),
-			'desc'    => __( 'field description (optional)', 'IGV' ),
-			'id'      => $this->prefix . 'test_colorpicker',
-			'type'    => 'colorpicker',
-			'default' => '#bada55',
+			'default' => 'info@ouli.us',
 		) );
 
 	}
