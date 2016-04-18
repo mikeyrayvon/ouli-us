@@ -6,7 +6,7 @@
 
 meyer-reset()
 box-sizing-reset()
-normalize() 
+normalize()
 
 // GRID
 
@@ -33,10 +33,13 @@ $font-tracking-basic = 0.001em
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
+$font-univers = "Univers", "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-univers-extended = "Univers-Ex", "Helvetica Neue", Helvetica, Arial, sans-serif
+
 // TYPOGRAPHY
 
 body
-  font-family: font-stack('Helvetica')
+  font-family: $font-univers
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
@@ -46,13 +49,19 @@ body
 h1, h2
   font-size: 1.2rem
   font-weight: 600
+  font-style: normal
   
 h2
   margin: $margin-tiny 0
 
-
 p
   margin-bottom: 1rem
+  
+em 
+  font-style: italic
+
+strong
+  font-weight: 600
 
   // FONT RULES
 
@@ -98,13 +107,15 @@ p a
 header#header 
   position: relative
   margin-top: $margin-small
-  margin-bottom: $margin-small
+  margin-bottom: $margin-large
   
 .site-title
   position: fixed
   margin: 0
   font-size: 1.8rem
   font-weight: 400
+  font-family: $font-univers-extended
+  line-height: 1
   
 .email-link
   display: block
@@ -124,7 +135,7 @@ img
   height: auto
   
 .single-text
-  width: 600px
+  width: 500px
   margin-bottom: $margin-tiny
   
 .images-container
@@ -138,6 +149,7 @@ img
 .caption
   text-align: center
   font-size: 0.7rem
+  font-weight: 300
   
 
 // MEDIA QUERIES
@@ -146,11 +158,6 @@ img
 
   .container
     width: 98%
-    
-@media screen and (max-width: 900px)
-
-  .single-text
-    width: 500px
     
 @media screen and (max-width: 601px)
 
