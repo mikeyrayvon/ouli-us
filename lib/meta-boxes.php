@@ -28,6 +28,33 @@ return $post_options;
 /**
  * Hook in and add metaboxes. Can only happen on the 'cmb2_init' hook.
  */
+add_action( 'cmb2_init', 'igv_page_metaboxes' );
+function igv_page_metaboxes() {
+
+  // Start with an underscore to hide fields from custom fields list
+  $prefix = '_igv_';
+
+  /**
+   * Metaboxes declarations here
+   * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
+   */
+
+  $page_metabox = new_cmb2_box( array(
+    'id'           => $prefix . 'page_metabox',
+    'title'        => __( 'Options', 'cmb2' ),
+    'object_types' => array( 'page', ),
+  ) );
+
+  $page_metabox->add_field( array(
+    'name'    => __( 'Info page heading', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'info_heading',
+    'type'    => 'text',
+    'default' => 'Studio Ouli Los Angeles CA',
+  ) );
+
+}
+
 add_action( 'cmb2_init', 'igv_cmb_metaboxes' );
 function igv_cmb_metaboxes() {
 
@@ -38,6 +65,34 @@ function igv_cmb_metaboxes() {
 	 * Metaboxes declarations here
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
 	 */
+
+  $post_metabox = new_cmb2_box( array(
+    'id'           => $prefix . 'post_metabox',
+    'title'        => __( 'Options', 'cmb2' ),
+    'object_types' => array( 'post', ),
+  ) );
+
+  $post_metabox->add_field( array(
+    'name'    => __( 'Background color', 'cmb2' ),
+    'desc'    => __( '', 'cmb2' ),
+    'id'      => $prefix . 'bg_color',
+    'type'    => 'colorpicker',
+    'default' => '#b7b2b9',
+  ) );
+
+}
+
+add_action( 'cmb2_init', 'igv_image_metaboxes' );
+function igv_image_metaboxes() {
+
+  // Start with an underscore to hide fields from custom fields list
+  $prefix = '_igv_';
+
+  /**
+   * Metaboxes declarations here
+   * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
+   */
+
   $images_group = new_cmb2_box( array(
     'id'           => $prefix . 'image_group',
     'title'        => __( 'Images', 'cmb2' ),

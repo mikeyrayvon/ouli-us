@@ -104,11 +104,43 @@ class IGV_Admin {
 		// Set our CMB2 fields
 
 		$cmb->add_field( array(
-			'name' => __( 'Email address', 'IGV' ),
-			'desc' => __( 'appears in the header', 'IGV' ),
+			'name' => __( 'Email', 'IGV' ),
+			'desc' => __( '', 'IGV' ),
 			'id'   => $this->prefix . 'email',
 			'type' => 'text',
 			'default' => 'info@ouli.us',
+		) );
+
+		$cmb->add_field( array(
+			'name' => __( 'Instagram', 'IGV' ),
+			'desc' => __( '', 'IGV' ),
+			'id'   => $this->prefix . 'instagram',
+			'type' => 'text',
+			'default' => 'https://www.instagram.com/oulishop/',
+		) );
+
+		$cmb->add_field( array(
+			'name'    => __( 'Home text', 'cmb2' ),
+			'desc'    => __( '', 'cmb2' ),
+			'id'      => $this->prefix . 'home_text',
+			'type'    => 'wysiwyg',
+			'options' => array( 'textarea_rows' => 5, 'media_buttons' => false, ),
+		) );
+
+		$cmb->add_field( array(
+			'name'    => __( 'Home background color', 'cmb2' ),
+			'desc'    => __( '', 'cmb2' ),
+			'id'      => $this->prefix . 'home_bg_color',
+			'type'    => 'colorpicker',
+			'default' => '#fcfbf6',
+		) );
+
+		$cmb->add_field( array(
+			'name'    => __( 'Info background color', 'cmb2' ),
+			'desc'    => __( '', 'cmb2' ),
+			'id'      => $this->prefix . 'page_bg_color',
+			'type'    => 'colorpicker',
+			'default' => '#b35d4e',
 		) );
 
 	}

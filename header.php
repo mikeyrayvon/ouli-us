@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
@@ -47,19 +48,39 @@
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php wp_head(); ?>
+  <style type="text/css">
+    html {
+      background-color: <?php 
+        if (is_home()) { 
+          echo IGV_get_option('_igv_home_bg_color');
+        } else if (is_page()) {
+          echo IGV_get_option('_igv_page_bg_color');;
+        } else {
+          echo get_post_meta($post->ID, '_igv_bg_color')[0];
+        }
+      ?>;
+    }
+  </style>
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
-<?php
-  $email = IGV_get_option('_igv_email');
-?>
 
   <section id="main-container">
 
   <!-- start content -->
   <header id="header" class="container">
-    <h1 class="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-  <?php if ($email) { ?>
-    <span class="email-link"><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></span>
+    <div class="into-3 percent-col text-align-left"><a <?php 
+    if (is_home()) { 
+      echo 'href="#"'; 
+    } else {
+      echo 'href="' . home_url() . '"'; 
+    } ?> >Studio</a></div>
+    <div class="into-3 percent-col text-align-center"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
+  <?php 
+    $info_id = get_id_by_slug('info');
+
+    if ($info_id) { ?>
+    <div class="into-3 percent-col text-align-right"><a href="<?php echo get_page_link( $info_id ); ?>">Info</a></div>
   <?php } ?>
+
   </header>

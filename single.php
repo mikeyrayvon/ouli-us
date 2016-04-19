@@ -15,14 +15,13 @@ if( have_posts() ) {
     the_post();
 ?>
 
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class('text-align-center'); ?> id="post-<?php the_ID(); ?>">
       <div class="single-text">
         <a href="<?php the_permalink() ?>">
           <h1><?php the_title(); ?></h1>
         </a>
         <?php the_content(); ?>
       </div>
-      <div class="images-container">
 <?php 
   $images_data = get_post_meta($post->ID, '_igv_images');
   $images = $images_data[0];
@@ -49,14 +48,13 @@ if( have_posts() ) {
     } // end foreach
   } // end if
 ?>
-      </div>
     </article>
 
 <?php
   }
 } else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    <article class="u-alert"><?php _e('Sorry, this post does not exist.'); ?></article>
 <?php
 } ?>
 

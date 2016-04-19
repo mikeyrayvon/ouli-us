@@ -12,10 +12,6 @@ normalize()
 
 $gutter = 16px
 
-.container
-  margin: 0 auto
-  width: 1600px
-
 // VARIABLES
 
 $golden-ratio = 1.61803398875
@@ -26,29 +22,41 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 15px
+$font-size-basic = 24px
 $font-leading-basic = 1.35em
 $font-tracking-basic = 0.001em
 
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
-$font-univers = "Univers", "Helvetica Neue", Helvetica, Arial, sans-serif
-$font-univers-extended = "Univers-Ex", "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-moderat = "Moderat", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+.percent-col
+  float: left
+  box-sizing: border-box
+
+$pcols = 10
+
+for pcol in 1..$pcols
+  .into-{pcol}
+    width: ( 100% / pcol )
 
 // TYPOGRAPHY
 
 body
-  font-family: $font-univers
+  font-family: $font-moderat
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
+  height: 100%
+  width: 100%
+  padding-bottom: $margin-small 
 
   // HTML ELEMENT STYLING
  
 h1, h2
-  font-size: 1.2rem
-  font-weight: 600
+  font-size: $font-size-basic
+  font-weight: 400
   font-style: normal
   
 h2
@@ -58,22 +66,19 @@ p
   margin-bottom: 1rem
   
 em 
-  font-style: italic
+  font-style: normal
 
 strong
-  font-weight: 600
+  font-weight: 400
 
   // FONT RULES
-
-.font-italic
-  font-style: italic
-
-.font-bold
-  font-weight: bold
 
 .font-small-caps
   font-size: 0.85em
   text-transform: uppercase
+  
+.font-underline
+  text-decoration: underline
 
   // TEXT RULES
 
@@ -105,69 +110,84 @@ p a
 // HEADER
 
 header#header 
-  position: relative
-  margin-top: $margin-small
-  margin-bottom: $margin-large
-  
-.site-title
   position: fixed
-  margin: 0
-  font-size: 1.8rem
-  font-weight: 400
-  font-family: $font-univers-extended
-  line-height: 1
-  
-.email-link
-  display: block
-  text-align: right 
-  font-size: 1.5rem
-  text-decoration: underline
+  top: 0
   
 
 // BASIC
 
+.container
+  padding: $margin-small 
+  width: 100%
+
+
 html
-  background-color: $color-white-soft
   color: $color-black-soft
 
 img
   max-width: 100%
   height: auto
   
-.single-text
-  width: 500px
-  margin-bottom: $margin-tiny
+#main-content
+  margin-top: $margin-mid
+  text-align: center
   
-.images-container
+#home-text-container
+  font-size: 28px
+  line-height: $font-leading-basic
+  
+.home-text 
+  width: 600px
+  margin: 0 auto $margin-large
+  
+.post-title
+  display: block 
+  .post-num
+    display: inline
+  h2 
+    display: none
+  
+a.post-link:hover
+  .post-num
+    display: none
+  h2 
+    display: inline
+  
+.single-text
+  margin: 0 auto
+  width: 600px
   text-align: center
   
 .single-image
   display: inline-block
   vertical-align: top
-  margin: $margin-tiny
+  margin: $margin-small
   
-.caption
-  text-align: center
-  font-size: 0.7rem
-  font-weight: 300
+.info-header
+  margin-bottom: $margin-basic
   
+.info-title 
+  margin: 0
+  
+// FOOTER
 
-// MEDIA QUERIES
-
-@media screen and (max-width: 1640px)
-
-  .container
-    width: 98%
+footer#footer 
+  position: fixed
+  bottom: 0
+  pointer-events: none
+  a 
+    pointer-events: auto
     
+@media screen and (max-width: 801px)
+  .single-image
+    margin: $margin-small $margin-mid
+
 @media screen and (max-width: 601px)
-
-  .container
-    width: 96%
-
-  .single-text
-    width: 400px
+  #home-text-container, h1, h2, body
+    font-size: 21px
+  .single-text, .home-text
+    width: 100%
     
 @media screen and (max-width: 401px)
-
-  .single-text
-    width: 100%
+  .single-image
+    margin: $margin-small $margin-basic

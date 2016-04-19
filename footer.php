@@ -1,4 +1,5 @@
-    <footer id="footer">
+    <footer id="footer" class="container text-align-right">
+      <a href="<?php echo IGV_get_option('_igv_instagram'); ?>">IG</a>
     </footer>
 
   </section>
