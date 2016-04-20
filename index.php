@@ -44,7 +44,7 @@ if( have_posts() ) {
   } // end while
 } else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    <article class="u-alert"><?php _e('Not found.'); ?></article>
 <?php
 } ?>
 

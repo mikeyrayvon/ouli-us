@@ -54,7 +54,7 @@ if( have_posts() ) {
   }
 } else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, this post does not exist.'); ?></article>
+    <article class="u-alert"><?php _e('Not found.'); ?></article>
 <?php
 } ?>
 

@@ -40,7 +40,7 @@ if( function_exists( 'add_image_size' ) ) {
   //add_image_size( 'admin-thumb', 150, 150, false );
   //add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'medium_large', 720, 9999, false );
+  add_image_size( 'medium_large', 600, 9999, false );
 }
 
 
@@ -74,7 +74,7 @@ function Ouli_theme_filter_medium_size_h( $newvalue ) {
 }
 add_filter( 'pre_update_option_medium_large_size_w', 'Ouli_theme_filter_medium_large_size_w' );
 function Ouli_theme_filter_medium_large_size_w( $newvalue ) {
-  return 720;
+  return 600;
 }
 add_filter( 'pre_update_option_medium_large_size_h', 'Ouli_theme_filter_medium_large_size_h' );
 function Ouli_theme_filter_medium_large_size_h( $newvalue ) {
