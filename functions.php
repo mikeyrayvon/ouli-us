@@ -219,4 +219,10 @@ function get_random_image_size() {
   $sizes = (array) get_intermediate_image_sizes();
   return $sizes[array_rand( $sizes )];
 }
+
+function RemoveAddMediaButtons(){
+  remove_action( 'media_buttons', 'media_buttons' );
+}
+add_action('admin_head', 'RemoveAddMediaButtons');
+
 ?>
